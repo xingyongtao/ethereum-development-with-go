@@ -4,7 +4,7 @@
 
 要连接以太坊节点，最常用的办法是使用[go-ethereum](https://github.com/ethereum/go-ethereum)库的`ethclient`。
 
-你可以使用远程节点服务（如[Infura](https://app.infura.io/)，QuickNode，Alchemy等），也可以启动本地的调试节点（如Hardhat本地节点或者Foundry的[anvil](https://book.getfoundry.sh/reference/anvil/))
+你可以使用远程节点服务（如[Infura](https://app.infura.io/)，QuickNode，Alchemy等），也可以启动本地的调试节点（如Hardhat本地节点或者Foundry的[anvil](https://book.getfoundry.sh/reference/anvil/))。
 
 ```go
 client, err := ethclient.Dial("https://mainnet.infura.io/v3/<API-KEY>")
@@ -93,3 +93,12 @@ func main() {
 	log.Printf("blocknumber: %d", bn)
 }
 ```
+
+输出应该是类似如下的内容
+```bash
+2023/10/18 11:50:26 connect success
+2023/10/18 11:50:26 chainId: 31337
+2023/10/18 11:50:26 blocknumber: 0
+```
+
+恭喜你，已经学会了使用`Go`连接以太坊，可以开始神奇的以太坊开发旅程了。
