@@ -6,10 +6,6 @@ import (
 	"log"
 )
 
-type Block struct {
-	Number string
-}
-
 func main() {
 	url := "http://localhost:8545"
 	client, err := ethclient.Dial(url)

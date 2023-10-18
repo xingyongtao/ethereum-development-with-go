@@ -24,10 +24,6 @@ import (
 	"os"
 )
 
-type Block struct {
-	Number string
-}
-
 func main() {
 	apiKey := os.Getenv("INFURA_API_KEY")
 	url := "https://mainnet.infura.io/v3/" + apiKey
@@ -67,10 +63,6 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 	"log"
 )
-
-type Block struct {
-	Number string
-}
 
 func main() {
 	url := "http://localhost:8545"

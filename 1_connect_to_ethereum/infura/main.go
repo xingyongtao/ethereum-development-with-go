@@ -7,10 +7,6 @@ import (
 	"os"
 )
 
-type Block struct {
-	Number string
-}
-
 func main() {
 	apiKey := os.Getenv("INFURA_API_KEY")
 	url := "https://mainnet.infura.io/v3/" + apiKey
