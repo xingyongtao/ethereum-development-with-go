@@ -17,3 +17,15 @@
 
 在`EVM`兼容网络之间，`ChainID`是区分网络的重要手段，每一个网络都有唯一的`ID`与其对应。
 比如，以太坊的`ID`是`1`，Polygon的`ID`是`137`，而BSC的`ID`是`56`。想知道一个网络的具体`ID`，可以参考[https://chainlist.org/](https://chainlist.org/)。
+
+获取`ChainID`比较简单，传入`ctx`即可，返回值是`*big.Int`类型。
+```go
+chainId, err := client.ChainID(ctx)
+```
+
+获取`BlockNumber`也类似，都不复杂，返回值是`uint64`。
+```go
+bn, err := client.BlockNumber(ctx)
+```
+
+完整的代码见上一节[连接以太坊](../1_connect_to_ethereum/README.md)。
