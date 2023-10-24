@@ -2,9 +2,9 @@ package main
 
 import (
 	"context"
+	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"log"
-	"math/big"
 	"os"
 )
 
@@ -17,16 +17,15 @@ func main() {
 	}
 	ctx := context.Background()
 
-	bn := big.NewInt(18382246)
-	header, err := client.HeaderByNumber(ctx, bn)
+	tx, _, err := client.TransactionByHash(ctx, common.HexToHash("0x468f17f20488fa6011aae26fb59f9e14256ccf4a3835b28d5309b8d11b30656a"))
 	if err != nil {
-		log.Fatalf("get header error: %s", err)
+		log.Fatalf("get tx error: %s", err)
 	}
-	log.Printf("block %s, hash: %s, gas used: %d, base fee: %s", bn.String(), header.Hash(), header.GasUsed, header.BaseFee.String())
-
-	block, err := client.BlockByHash(ctx, header.Hash())
-	if err != nil {
-		log.Fatalf("get block error: %s", err)
-	}
-	log.Printf("block %s, time: %d, txs: %d", block.Hash(), block.Time(), len(block.Transactions()))
+	log.Printf("tx hash: %s", tx.Hash())
+	log.Printf("chainID: %s", tx.ChainId())
+	log.Printf("type: %d", tx.Type())
+	log.Printf("gas limit: %d", tx.Gas())
+	log.Printf("gas price: %d", tx.GasPrice())
+	log.Printf("gas fee cap: %s", tx.GasFeeCap())
+	log.Printf("gas tip cap: %s", tx.GasTipCap())
 }
